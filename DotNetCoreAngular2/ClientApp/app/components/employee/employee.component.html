@@ -1,0 +1,30 @@
+﻿<h1>Employees</h1>
+<p>This component demonstrates fetching data from the server.</p>
+<p *ngIf="!employee"><em>Loading...</em></p>
+<table class='table' *ngIf="employee">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employee">
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>
+                <a (click)="onSelect(emp)">Edit</a> | <a (click)="onDelete(emp.id)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+<p>
+    <a [routerLink]="['/employee/new']">
+        <b>Add New Employee</b> 
+    </a>
+</p>
+</div>
